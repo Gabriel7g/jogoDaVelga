@@ -1,0 +1,9 @@
+<#if licenseFirst??>
+${licenseFirst} #JOGO DA VELHA#
+</#if>
+${licensePrefix}# JOGO DA VELHA #
+${licensePrefix}  Gabriel Cruz
+${licensePrefix} Dezembro - 2019
+<#if licenseLast??>
+${licenseLast}
+</#if>
