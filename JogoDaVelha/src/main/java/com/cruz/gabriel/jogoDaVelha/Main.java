@@ -1,7 +1,7 @@
 /*
- * #JOGO DA VELHA#
- *  Gabriel Cruz
- * Dezembro - 2019
+ * # JOGO DA VELHA #
+ *   Gabriel Cruz
+ *  Dezembro - 2019
  */
 
 package com.cruz.gabriel.jogoDaVelha;
