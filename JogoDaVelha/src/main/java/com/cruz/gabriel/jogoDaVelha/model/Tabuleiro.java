@@ -15,4 +15,11 @@ package com.cruz.gabriel.jogoDaVelha.model;
 
 public class Tabuleiro {
     
+    private int X = 3;
+    private int Y = 3;
+    private char[][] tabuleiro;
+    
+    public Tabuleiro(){
+        tabuleiro = new char[X][Y];
+    }
 }
