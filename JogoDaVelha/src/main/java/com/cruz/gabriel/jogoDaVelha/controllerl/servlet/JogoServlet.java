@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * Back-End quando em relação ao início do jogo.
  *
  * @author Gabriel Cruz
- * @version 1.0
+ * @version 1.1
  */
 
 @WebServlet(name = "JogoServlet", urlPatterns = {"/game"})
