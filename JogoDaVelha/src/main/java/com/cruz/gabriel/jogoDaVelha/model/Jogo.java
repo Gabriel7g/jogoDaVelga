@@ -6,6 +6,7 @@
 
 package com.cruz.gabriel.jogoDaVelha.model;
 
+import com.cruz.gabriel.jogoDaVelha.util.DefinidorFirstPlayer;
 import static com.cruz.gabriel.jogoDaVelha.util.DefinidorFirstPlayer.defineFirstPlayer;
 
 /**
@@ -13,19 +14,25 @@ import static com.cruz.gabriel.jogoDaVelha.util.DefinidorFirstPlayer.defineFirst
  * Tem como responsabilidade única servir como modelo para um jogo.
  *
  * @author Gabriel Cruz
- * @version 1.1
+ * @version 1.3
  */
 
 public class Jogo {
     //Atributos
     private Id id;
     private Jogador jogador1, jogador2;
-    private Tabuleiro tabuleiro;
+    private int turno;
     
     //Construtor Padrão
     public Jogo(){
         id.setId();
-        jogador1.setCaracter(defineFirstPlayer());
+        turno=0;
+    }
+    
+    //Construtor com id
+    public Jogo(Id id){
+        this.id = id;
+        jogador1.setCaracter(defineFirstPlayer(id));
         if (jogador1.getCaracter()=='X'){
             jogador2.setCaracter('O'); 
         }else{
@@ -85,5 +92,31 @@ public class Jogo {
      */
     public String getCaracterSegundoJogadorAsString() {
         return Character.toString(jogador2.getCaracter());
+    }
+    
+    /**
+     * Método que retorna o atributo turno.
+     * 
+     * @return turno
+     */
+    public int getTurno() {
+        return turno;
+    }
+    
+    /**
+     * Método que incrementa o turno.
+     * 
+     */
+    public void increaseTurno() {
+        turno++;
+    }
+    
+    public void setCaracterPlayers(Id id){
+        jogador1.setCaracter(DefinidorFirstPlayer.defineFirstPlayer(id));
+        if (jogador1.getCaracter()=='X'){
+            jogador2.setCaracter('O'); 
+        }else{
+            jogador2.setCaracter('X'); 
+        }
     }
 }

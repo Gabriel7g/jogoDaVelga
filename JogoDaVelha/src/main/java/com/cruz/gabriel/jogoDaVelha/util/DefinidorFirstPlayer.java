@@ -5,7 +5,7 @@
  */
 package com.cruz.gabriel.jogoDaVelha.util;
 
-import java.util.Random;
+import com.cruz.gabriel.jogoDaVelha.model.Id;
 
 /**
  * Classe responsável por definir quem será o primeiro jogador a mexer.
@@ -13,7 +13,7 @@ import java.util.Random;
  * movimento.
  *
  * @author Gabriel Cruz
- * @version 1.0
+ * @version 1.1
  */
 
 public class DefinidorFirstPlayer {
@@ -22,15 +22,19 @@ public class DefinidorFirstPlayer {
      * 
      * @return caracterInicial
      */
-    public static char defineFirstPlayer(){
+    public static char defineFirstPlayer(Id id){
         
-        Random aleatorizador = new Random();
+        char[] idTexto = id.getId().toCharArray();
+        int somaId = 0;
         char caracterInicial;
         
-        //Repete a geração de caractere 36 vezes para atingir o tamanho proposto
-        int numeroInteiro = aleatorizador.nextInt(2);
+        for (int i = 0; i < 36; i++) {
+            if (!(idTexto[i]=='-')){
+                somaId = somaId + hexadecimalCharToInt(idTexto[i]);
+            }
+        }
 
-        if (numeroInteiro == 0){
+        if (somaId % 2 == 1){
             caracterInicial = 'O';
         }
         else{
@@ -38,5 +42,42 @@ public class DefinidorFirstPlayer {
         }     
                
         return caracterInicial;
+    }
+    
+    private static int hexadecimalCharToInt(char num){
+        switch(num){
+            case '1':
+                return 1;
+            case '2':
+                return 2;
+            case '3':
+                return 3;
+            case '4':
+                return 4;
+            case '5':
+                return 5;
+            case '6':
+                return 6;
+            case '7':
+                return 7;
+            case '8':
+                return 8;
+            case '9':
+                return 9;
+            case 'a':
+                return 10;
+            case 'b':
+                return 11;
+            case 'c':
+                return 12;
+            case 'd':
+                return 13;
+            case 'e':
+                return 14;
+            case 'f':
+                return 15;
+            default:
+                return 0;
+        }
     }
 }
