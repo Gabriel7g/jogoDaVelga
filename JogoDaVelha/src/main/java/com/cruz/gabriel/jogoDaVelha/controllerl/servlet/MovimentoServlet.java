@@ -35,6 +35,7 @@ public class MovimentoServlet extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
+     * @throws javax.servlet.ServletException
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request,
@@ -43,12 +44,13 @@ public class MovimentoServlet extends HttpServlet {
         Id id;
         char caracter;
         int x, y;
-        caracter = request.getParameter("player");
-        id = request.getParameter("id");
+        
+        caracter = request.getParameter("player").charAt(0);
+        id = new Id(request.getParameter("id"));
         /* Não tenho certeza se é assim mesmo, mas, ao procurar, essa foi a forma
          * que encontrei */
-        x=request.getParameter("position.x");
-        y=request.getParameter("position.y");
+        x=Integer.parseInt(request.getParameter("position.x"));
+        y=Integer.parseInt(request.getParameter("position.y"));
         Movimento movimento = new Movimento(id);
         String resposta = movimento.preenchePosicao(x, y, caracter);
         

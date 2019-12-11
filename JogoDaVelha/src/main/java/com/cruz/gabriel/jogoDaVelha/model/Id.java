@@ -20,8 +20,12 @@ public class Id {
     private String id;
 
     //Construtor Padrão
-    public Id(){
-    }
+    public Id(){}
+    
+    //Construtor com Id
+    public Id(String id) {
+        this.id = id;
+    } 
     
     /**
      * Método que retorna o valor do atributo id.

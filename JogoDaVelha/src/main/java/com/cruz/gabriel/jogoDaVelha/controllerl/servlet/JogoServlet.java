@@ -32,6 +32,7 @@ public class JogoServlet extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
+     * @throws javax.servlet.ServletException
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request,
